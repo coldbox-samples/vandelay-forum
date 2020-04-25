@@ -1,0 +1,11 @@
+{
+    "app":{
+        "cfengine":"Adobe@2016"
+    },
+    "name":"server stop",
+    "web":{
+        "rewrites":{
+            "enable":"true"
+        }
+    }
+}
