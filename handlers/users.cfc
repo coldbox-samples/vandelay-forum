@@ -41,6 +41,14 @@ component{
 		}
 	}
 		
+	function details( event, rc, prc )
+	{
+		rc.person = "Nolan";
+		prc.favoriteColor = "green";
 
+		WriteDump( rc );
+		WriteDump( prc );
+		WriteDump( event.getPrivateCollection() );
+	}
 	
 }
