@@ -15,17 +15,29 @@ component{
 		 */
 
 		// A nice healthcheck route example
-		route("/healthcheck",function(event,rc,prc){
-			return "Ok!";
+		route("/promo2020",function(event,rc,prc){
+			return "Coming soon in 2020!";
 		});
+
+
+
+		route("/promo2020",function(event,rc,prc){
+			return "Coming soon!";
+		});
+
 
 		// A nice RESTFul Route example
 		route( "/api/echo", function( event, rc, prc ){
-			return {
+
+			var rslt = {
 				"error" : false,
 				"data" 	: "Welcome to my awesome API!"
-			};
-		} );
+			}
+			var formattedRslt = serialize( rslt );
+			return formattedRslt;
+		});
+
+		route( "/people" ).toResponse( "users.list" );
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();
