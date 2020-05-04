@@ -36,6 +36,9 @@ component{
 	*/
 	function list( event, rc, prc ){
 
+		cfparam( name="rc.day", default="1" );
+		cfparam( name="rc.month", default="7" );
+
 	}
 
 	/**
