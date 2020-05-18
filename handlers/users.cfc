@@ -33,7 +33,9 @@ component{
 
 	function list( event, rc, prc )
 	{
-		rc.aryUsers = new models.Users().getUsers();
+		// rc.aryUsers = new models.Users().getUsersDB();
+		var objUser = getInstance( "Users" ).getUsersDB();
+		abort;
 
 		if( IsDefined( "rc.addMe" ) )
 		{

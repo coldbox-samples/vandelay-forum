@@ -50,7 +50,12 @@ component{
 		// custom settings
 		settings = {
 			companyName = "Vandelay Industries",
-			companyYearFounded = 1994
+			companyYearFounded = 1994,
+
+			vandelay_dsn = {
+				type = "mysql",
+				name = "vandelay_dsn"
+			}
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.
