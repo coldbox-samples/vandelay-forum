@@ -40,7 +40,11 @@ component{
 			rc.aryUsers.append( rc.addMe );
 		}
 	}
-		
+	
+	function new( event, rc, prc )
+	{
+	}
+
 	function details( event, rc, prc )
 	{
 		rc.person = "Nolan";
