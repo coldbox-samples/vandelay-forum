@@ -43,10 +43,24 @@
             "username":"root"
         },
         "vandelay_dsn": {
-            "class": "com.mysql.cj.jdbc.Driver",
-            "connectionString": "jdbc:mysql://localhost:8889/vandelay_dev_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=America/Los_Angeles&useLegacyDatetimeCode=true",
-            "username": "root",
-            "password": "root"
+            "allowAlter":true,
+            "allowCreate":true,
+            "allowDelete":true,
+            "allowDrop":true,
+            "allowGrant":true,
+            "allowInsert":true,
+            "allowRevoke":true,
+            "allowSelect":true,
+            "allowUpdate":true,
+            "class":"com.mysql.jdbc.Driver",
+            "dbdriver":"MySQL",
+            "database":"vandelay_dev_db",
+            "connectionString": "jdbc:mysql://127.0.0.1:8889/vandelay_dev_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=America/Los_Angeles&useLegacyDatetimeCode=true",
+            "dsn":"jdbc:mysql://{host}:{port}/{database}",
+            "host":"127.0.0.1",
+            "password":"root",
+            "port":"8889",
+            "username":"root"
         }
     },
     "debuggingEnabled":"no",
