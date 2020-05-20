@@ -36,7 +36,7 @@ component{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.aryUsers = qryUsers;
 
-		rc.message = "Goodbye!";
+		event.setView( 'users/tabular' );
 	}
 		
 	function details( event, rc, prc )
