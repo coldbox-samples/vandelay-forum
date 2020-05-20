@@ -33,24 +33,14 @@ component{
 
 	function list( event, rc, prc )
 	{
-		// rc.aryUsers = new models.Users().getUsersDB();
-		var objUser = getInstance( "Users" ).getUsersDB();
-		abort;
+		var qryUsers = getInstance( "Users" ).getUsers();
+		prc.aryUsers = qryUsers;
 
-		if( IsDefined( "rc.addMe" ) )
-		{
-			rc.aryUsers.append( rc.addMe );
-		}
+		rc.message = "Goodbye!";
 	}
 		
 	function details( event, rc, prc )
 	{
-		rc.person = "Nolan";
-		prc.favoriteColor = "green";
-
-		WriteDump( rc );
-		WriteDump( prc );
-		WriteDump( event.getPrivateCollection() );
 	}
 	
 }

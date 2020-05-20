@@ -9,20 +9,8 @@ component
 
     public array function getUsers()
     {
-        var aryUsers = [ "John", "Paul", "George", "Ringo" ];
-        return aryUsers;
-    }
-
-    public query function getUsersDB()
-    {
         var sql = "SELECT * FROM tUser";
-
-        // WriteDump( variables );
-        // abort;
-
-        var rslt = queryExecute( sql, {}, { datasource: dsn.name } );
-
-        WriteDump( rslt );
-        abort;
+        var rslt = queryExecute( sql, {}, { datasource: dsn.name, returntype="array"  } );
+        return rslt;
     }
 }
