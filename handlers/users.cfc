@@ -56,5 +56,6 @@ component{
 													rc.Password );
 
 		relocate( event="users.list" );
+		// relocate( event="users.list", querystring="saved=1" );
 	}
 }
