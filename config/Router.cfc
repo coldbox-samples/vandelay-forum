@@ -27,11 +27,7 @@ component{
 			};
 		} );
 
-		// route( "/msgs/:year/:month/:day", "messages.list" );
-		// route( "/msgs/:year/:month", "messages.list" );
-		// route( "/msgs/:year", "messages.list" );
-
-		route( "/msgs/:year/:month?/:day?", "messages.list" );
+		route( pattern="/users/list", target="users.list", name="usermanager" );
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();

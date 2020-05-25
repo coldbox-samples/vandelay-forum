@@ -34,13 +34,13 @@ component{
 	function list( event, rc, prc )
 	{
 		var qryUsers = getInstance( "Users" ).getUsers();
-		prc.aryUsers = qryUsers;
-
-		event.setView( 'users/tabular' );
+		prc.qryUsers = qryUsers;
 	}
 		
 	function details( event, rc, prc )
 	{
+		var qryUserDetails = getInstance( "Users" ).getUserDetails( rc.userID );
+		rc.qryUserDetails = qryUserDetails;
 	}
 	
 }

@@ -7,10 +7,17 @@ component
         return this;
     }
 
-    public array function getUsers()
+    public query function getUsers()
     {
-        var sql = "SELECT * FROM tUser";
-        var rslt = queryExecute( sql, {}, { datasource: dsn.name, returntype="array"  } );
+        var sql = "SELECT userID, firstName, lastName FROM tUser";
+        var rslt = queryExecute( sql, {}, { datasource: dsn.name } );
+        return rslt;
+    }
+
+    public query function getUserDetails( userID )
+    {
+        var sql = "SELECT userID, firstName, lastName FROM tUser WHERE userID = :userID";
+        var rslt = queryExecute( sql, { userID = arguments.userID }, { datasource: dsn.name } );
         return rslt;
     }
 }
