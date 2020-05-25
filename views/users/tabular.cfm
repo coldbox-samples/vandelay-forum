@@ -1,7 +1,7 @@
 <cfoutput>
     <h1>#getSetting( 'companyName' )# Users</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>First Name</th>

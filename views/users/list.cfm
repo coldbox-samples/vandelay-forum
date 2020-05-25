@@ -1,16 +1,18 @@
 <cfoutput>
     <h1>#getSetting( 'companyName' )# Users</h1>
 
-    <ul>
+    <ul class="list-group">
         <cfloop query="prc.qryUsers">
-            <!--- <li><a href="index.cfm?event=users.details&userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a></li> --->
+            <li class="list-group-item">
+            <!--- <a href="index.cfm?event=users.details&userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
 
-            <!--- <li><a href="/users/details/userID/#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a></li> --->
+            <!--- <a href="/users/details/userID/#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
 
-            <!--- <li><a href="#event.buildLink( to='users.details' )#?userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a></li> --->
+            <!--- <a href="#event.buildLink( to='users.details' )#?userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
 
-            <li><a href="#event.buildLink( to='users.details', 
-                                           queryString='userID=#prc.qryUsers.userID#' )#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a></li>
+                <a href="#event.buildLink( to='users.details', 
+                                           queryString='userID=#prc.qryUsers.userID#' )#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a>
+            </li>
         </cfloop>
     </ul>
 
