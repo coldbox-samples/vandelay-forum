@@ -55,6 +55,6 @@ component{
 													rc.Email, 
 													rc.Password );
 
-
+		relocate( event="users.list" );
 	}
 }
