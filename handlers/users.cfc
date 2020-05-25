@@ -55,7 +55,9 @@ component{
 													rc.Email, 
 													rc.Password );
 
-		relocate( event="users.list" );
+		// relocate( event="users.list" );
 		// relocate( event="users.list", querystring="saved=1" );
+		// relocate( url="https://ortussolutions.com" );
+		// relocate( uri="/users/list" );
 	}
 }
