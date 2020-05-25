@@ -11,7 +11,7 @@
         <tbody>
             <cfloop query="#prc.qryUsers#">
                 <tr>
-                    <td>#prc.qryUsers.firstName#</td>
+                    <td><a href="#event.buildLink( to='users.details', querystring='userid=#prc.qryUsers.userID#' )#">#prc.qryUsers.firstName#</a></td>
                     <td>#prc.qryUsers.lastName#</td>
                 </tr>
             </cfloop>

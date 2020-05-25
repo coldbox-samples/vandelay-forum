@@ -2,8 +2,8 @@
     <h1>User Details</h1>
 
     <cfif IsDefined( "rc.qryUserDetails" )>
-        <form name="frmUser" id="frmUser">
-            <input type="hidden" name="userID" id="userID" value="rc.qryUserDetails.userID" />
+        <form name="frmUser" id="frmUser" method="post" action="#event.buildLink( 'users.save' )#">
+            <input type="hidden" name="userID" id="userID" value="#Val( rc.qryUserDetails.userID )#" />
             <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" value="#rc.qryUserDetails.firstName#" />

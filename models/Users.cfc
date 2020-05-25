@@ -29,7 +29,39 @@ component
 
     public any function saveUser( userID, firstName, lastName, Email, Password )
     {
+        if( IsNumeric( arguments.userID ) && arguments.userID > 0 )
+        {
+            var sql = "UPDATE tUser 
+                          SET FirstName = :firstName, 
+                              lastName = :lastName, 
+                              email = :email, 
+                              Password = :Password 
+                        WHERE userID = :userID";
+        }
+        else 
+        {
+            var sql = "INSERT INTO tUser ( firstName, 
+                                           lastName, 
+                                           Email, 
+                                           Password ) 
+                                         VALUES
+                                          (
+                                            :firstName,
+                                            :lastName,
+                                            :Email,
+                                            :Password
+                                          )";
+        }
 
+        var rslt = queryExecute( sql, { userID = arguments.userID,
+                                        firstName = arguments.firstName,
+                                        lastName = arguments.lastName,
+                                        email = arguments.email,
+                                        password = arguments.password
+                                      }, 
+                                      { datasource: dsn.name } );
+
+        return rslt;
     }
 
 }

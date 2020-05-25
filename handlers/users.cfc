@@ -47,4 +47,14 @@ component{
 		rc.qryUserDetails = qryUserDetails;
 	}
 	
+	function save( event, rc, prc )
+	{
+		var rslt = getInstance( "Users" ).saveUser( Val( rc.userID ), 
+													rc.firstName, 
+													rc.lastName, 
+													rc.Email, 
+													rc.Password );
+
+
+	}
 }
