@@ -9,10 +9,10 @@
             </tr>
         </thead>
         <tbody>
-            <cfloop array="#prc.aryUsers#" item="u">
+            <cfloop query="#prc.qryUsers#">
                 <tr>
-                    <td>#u.firstName#</td>
-                    <td>#u.lastName#</td>
+                    <td>#prc.qryUsers.firstName#</td>
+                    <td>#prc.qryUsers.lastName#</td>
                 </tr>
             </cfloop>
         </tbody>

@@ -35,6 +35,10 @@ component{
 	{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
+
+		// event.setView( 'users/tabular' );
+		// event.setView( view='users/tabular', layout='newbootstrap' );
+		// event.setView( view='users/tabular', nolayout="true" );
 	}
 		
 	function details( event, rc, prc )
