@@ -36,9 +36,11 @@ component{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
 
-		// event.setView( 'users/tabular' );
-		// event.setView( view='users/tabular', layout='newbootstrap' );
-		// event.setView( view='users/tabular', nolayout="true" );
+		return prc.qryUsers;
+		
+		// event.renderData( data=prc.qryUsers.toString() );
+		// event.renderData( type="XML", data=prc.qryUsers );
+		// event.renderData( type="JSON", data=prc.qryUsers );
 	}
 		
 	function details( event, rc, prc )
