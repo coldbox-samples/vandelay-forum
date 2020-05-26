@@ -13,12 +13,22 @@ component{
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
 	this.allowedMethods = {};
 	
-	/**
-	IMPLICIT FUNCTIONS: Uncomment to use
-	function preHandler( event, rc, prc, action, eventArguments ){
+
+	// IMPLICIT FUNCTIONS: Uncomment to use
+	function preHandler( event, rc, prc, action, eventArguments )
+	{
+		if( !isDefined( "sesison.isLoggedIn" ) )
+		{
+			WriteOutput( "<P>Not Logged In!</P>" );
+			abort;
+		}
 	}
-	function postHandler( event, rc, prc, action, eventArguments ){
+
+	function postHandler( event, rc, prc, action, eventArguments )
+	{
+		
 	}
+/*
 	function aroundHandler( event, rc, prc, targetAction, eventArguments ){
 		// executed targeted action
 		arguments.targetAction( event );
@@ -29,15 +39,14 @@ component{
 	}
 	function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 	}
-	*/
-
+*/
 	function list( event, rc, prc )
 	{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
 
-		return prc.qryUsers;
-		
+		// return prc.qryUsers;
+
 		// event.renderData( data=prc.qryUsers.toString() );
 		// event.renderData( type="XML", data=prc.qryUsers );
 		// event.renderData( type="JSON", data=prc.qryUsers );
