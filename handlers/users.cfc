@@ -15,7 +15,7 @@ component{
 	
 
 	// IMPLICIT FUNCTIONS: Uncomment to use
-	function preHandler( event, rc, prc, action, eventArguments )
+/*	function preHandler( event, rc, prc, action, eventArguments )
 	{
 		if( !isDefined( "sesison.isLoggedIn" ) )
 		{
@@ -28,18 +28,26 @@ component{
 	{
 		
 	}
-/*
+
 	function aroundHandler( event, rc, prc, targetAction, eventArguments ){
 		// executed targeted action
 		arguments.targetAction( event );
 	}
-	function onMissingAction( event, rc, prc, missingAction, eventArguments ){
+*/
+
+	function onMissingAction( event, rc, prc, missingAction, eventArguments )
+	{
+		log.error( "Missing Action! Somebody requested #arguments.missingAction#." );
+		// abort;
+		relocate( 'users.list' );
 	}
+
 	function onError( event, rc, prc, faultAction, exception, eventArguments ){
 	}
+
 	function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 	}
-*/
+
 	function list( event, rc, prc )
 	{
 		var qryUsers = getInstance( "Users" ).getUsers();
