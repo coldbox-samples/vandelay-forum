@@ -41,7 +41,7 @@ component{
 
 			//Application Aspects
 			handlerCaching 			= false,
-			eventCaching			= false,
+			eventCaching			= true,
 			viewCaching				= false,
 			// Will automatically do a mapDirectory() on your `models` for you.
 			autoMapModels			= true

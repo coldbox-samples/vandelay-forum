@@ -15,25 +15,23 @@ component{
 	
 
 	// IMPLICIT FUNCTIONS: Uncomment to use
-/*	function preHandler( event, rc, prc, action, eventArguments )
+	function preHandler( event, rc, prc, action, eventArguments )
 	{
-		if( !isDefined( "sesison.isLoggedIn" ) )
+		if( IsDefined( "rc.resetCache" ) )
 		{
-			WriteOutput( "<P>Not Logged In!</P>" );
-			abort;
+			templateCache = cachebox.getCache( "template" );
+			templateCache.clearAllEvents();
 		}
 	}
-
+/*
 	function postHandler( event, rc, prc, action, eventArguments )
 	{
-		
 	}
 
 	function aroundHandler( event, rc, prc, targetAction, eventArguments ){
 		// executed targeted action
 		arguments.targetAction( event );
 	}
-*/
 
 	function onMissingAction( event, rc, prc, missingAction, eventArguments )
 	{
@@ -47,8 +45,8 @@ component{
 
 	function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 	}
-
-	function list( event, rc, prc )
+*/
+	function list( event, rc, prc ) cache="true" cacheTimeout="30"
 	{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
@@ -60,7 +58,7 @@ component{
 		// event.renderData( type="JSON", data=prc.qryUsers );
 	}
 		
-	function details( event, rc, prc )
+	function details( event, rc, prc ) cache="true" cacheTimeout="30"
 	{
 		var qryUserDetails = getInstance( "Users" ).getUserDetails( rc.userID );
 		rc.qryUserDetails = qryUserDetails;
