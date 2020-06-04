@@ -47,7 +47,7 @@ component{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
 
-		event.setLayout( 'pdf' );
+		// event.setLayout( 'pdf' );
 		// event.setView( 'users/tabular' );
 	}
 		
