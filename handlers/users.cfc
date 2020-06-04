@@ -17,11 +17,7 @@ component{
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
 	{
-		if( IsDefined( "rc.resetCache" ) )
-		{
-			templateCache = cachebox.getCache( "template" );
-			templateCache.clearAllEvents();
-		}
+		// event.setLayout( 'plain' );
 	}
 /*
 	function postHandler( event, rc, prc, action, eventArguments )
@@ -46,16 +42,13 @@ component{
 	function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
 	}
 */
-	function list( event, rc, prc ) cache="true" cacheTimeout="30"
+	function list( event, rc, prc )
 	{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
 
-		// return prc.qryUsers;
-
-		// event.renderData( data=prc.qryUsers.toString() );
-		// event.renderData( type="XML", data=prc.qryUsers );
-		// event.renderData( type="JSON", data=prc.qryUsers );
+		event.setLayout( 'pdf' );
+		// event.setView( 'users/tabular' );
 	}
 		
 	function details( event, rc, prc ) cache="true" cacheTimeout="30"
