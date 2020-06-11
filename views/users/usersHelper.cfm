@@ -1,0 +1,1 @@
+<!--- functions that work for ANY view in the /views/users folder go here. --->

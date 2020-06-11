@@ -1,0 +1,1 @@
+<!--- functions that ONLY work for the /views/users/list.cfm view go here. --->
