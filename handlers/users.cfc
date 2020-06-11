@@ -17,7 +17,7 @@ component{
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
 	{
-		event.setLayout( 'plain' );
+		// event.setLayout( 'plain' );
 	}
 /*
 	function postHandler( event, rc, prc, action, eventArguments )
@@ -51,7 +51,7 @@ component{
 		// event.setView( 'users/tabular' );
 	}
 		
-	function details( event, rc, prc ) cache="true" cacheTimeout="30"
+	function details( event, rc, prc )
 	{
 		var qryUserDetails = getInstance( "Users" ).getUserDetails( rc.userID );
 		rc.qryUserDetails = qryUserDetails;
