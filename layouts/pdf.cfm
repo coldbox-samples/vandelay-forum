@@ -18,7 +18,7 @@
     </cfoutput>
     </cfdocumentitem>
 
-    <!---  Main Content via nested layout --->
-    #renderLayout(layout="basic")#
+    <!--- <cfoutput>#renderView()#</cfoutput> --->
+    <cfoutput>#renderLayout( layout="main" )#</cfoutput>
 
 </cfdocument>

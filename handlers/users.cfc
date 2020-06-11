@@ -17,7 +17,7 @@ component{
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
 	{
-		// event.setLayout( 'plain' );
+		event.setLayout( 'plain' );
 	}
 /*
 	function postHandler( event, rc, prc, action, eventArguments )
@@ -47,7 +47,7 @@ component{
 		var qryUsers = getInstance( "Users" ).getUsers();
 		prc.qryUsers = qryUsers;
 
-		// event.setLayout( 'pdf' );
+		// event.setLayout( 'plain' );
 		// event.setView( 'users/tabular' );
 	}
 		
