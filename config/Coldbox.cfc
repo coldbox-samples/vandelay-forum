@@ -25,7 +25,7 @@ component{
 
 			//Extension Points
 			applicationHelper 			= "includes/helpers/ApplicationHelper.cfm",
-			viewsHelper					= "",
+			viewsHelper					= "includes/helpers/ViewsHelper.cfm",
 			modulesExternalLocation		= [],
 			viewsExternalLocation		= "",
 			layoutsExternalLocation 	= "",

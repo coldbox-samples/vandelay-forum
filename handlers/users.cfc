@@ -17,7 +17,7 @@ component{
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
 	{
-		event.setLayout( 'plain' );
+		// event.setLayout( 'plain' );
 	}
 /*
 	function postHandler( event, rc, prc, action, eventArguments )
