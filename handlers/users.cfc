@@ -17,7 +17,7 @@ component{
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
 	{
-		event.setLayout( 'plain' );
+		// event.setLayout( 'plain' );
 	}
 /*
 	function postHandler( event, rc, prc, action, eventArguments )
@@ -48,7 +48,12 @@ component{
 		prc.qryUsers = qryUsers;
 
 		// event.setLayout( 'plain' );
-		// event.setView( 'users/tabular' );
+		// event.setView( view='users/tabular', layout="plain" );
+		// event.setView( 
+		// 	view="users/tabular",
+		// 	cache=true,
+		// 	cacheTimeout=60
+		// );
 	}
 		
 	function details( event, rc, prc ) cache="true" cacheTimeout="30"
