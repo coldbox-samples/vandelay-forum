@@ -48,7 +48,7 @@ component{
 		prc.qryUsers = qryUsers;
 
 		// event.setLayout( 'plain' );
-		// event.setView( view='users/tabular', layout="plain" );
+		event.setView( view='users/tabular' );
 		// event.setView( 
 		// 	view="users/tabular",
 		// 	cache=true,
