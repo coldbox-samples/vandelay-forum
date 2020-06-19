@@ -34,11 +34,14 @@ component{
 	/**
 	* list
 	*/
-	function list( event, rc, prc ){
+	function list( event, rc, prc )
+	{
+		// var qMessages = new models.Messages();
+		var qMessages = getInstance( 'Messages' );
 
-		cfparam( name="rc.day", default="1" );
-		cfparam( name="rc.month", default="7" );
+		//writedump( qMessages );
 
+		prc.qMessages = qMessages.read();
 	}
 
 	/**
