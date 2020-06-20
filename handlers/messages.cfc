@@ -3,6 +3,8 @@
 */
 component{
 	
+	property name="html" inject="HTMLHelper@coldbox";
+
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -37,17 +39,26 @@ component{
 	function list( event, rc, prc )
 	{
 		// var qMessages = new models.Messages();
-		var qMessages = getInstance( 'Messages' );
+		var objMessages = getInstance( 'Messages' );
 
 		//writedump( qMessages );
 
-		prc.qMessages = qMessages.read();
+		prc.qMessages = objMessages.read();
+
+		event.setView( "messages/list" );
 	}
 
 	/**
 	* detail
 	*/
-	function detail( event, rc, prc ){
+	function detail( event, rc, prc )
+	{
+		var objMessages = getInstance( 'Messages' );
+		var objUsers    = getInstance( "Users" );
+
+		prc.qUsers = objUsers.getUsers();
+		prc.qMessage = objMessages.read( rc.MessageID ?: 0 );
+
 		event.setView( "messages/detail" );
 	}
 
