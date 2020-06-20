@@ -1,4 +1,4 @@
-component
+component singleton
 {
     property name="dsn" inject="coldbox:setting:vandelay_dsn";
 
@@ -11,6 +11,13 @@ component
     public any function init()
     {
         return this;
+    }
+
+    public any function search( MessageBody, Subject )
+    {
+        /*
+            Search functionality will go here 
+        */
     }
 
     public any function create( UserID, MessageBody, Subject, dateTimeCreated )
