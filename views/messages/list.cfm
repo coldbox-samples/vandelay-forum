@@ -7,14 +7,18 @@
         <thead>
             <tr>
                 <th>Date</th>
+                <th>Author</th>
                 <th>Subject</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <cfloop query="prc.qMessages">
                 <tr>
-                    <td>#prc.qMessages.dateTimeCreated#</td>
-                    <td>#prc.qMessages.subject#</td>
+                    <td>#DateFormat( prc.qMessages.dateTimeCreated, 'mm/dd/yyyy' )#</td>
+                    <td>#prc.qMessages.UserID#</td>
+                    <td><a href="#event.buildLink( 'messages.detail' )#/MessageID/#prc.qMessages.MessageID#">#prc.qMessages.subject#</a></td>
+                    <td><a href="#event.buildLink( 'messages.delete' )#/MessageID/#prc.qMessages.MessageID#">delete</a></td>
                 </tr>
             </cfloop>
         </tbody>

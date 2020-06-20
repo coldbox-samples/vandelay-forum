@@ -54,7 +54,7 @@ component{
 	function detail( event, rc, prc )
 	{
 		param name="rc.MessageID" default="0" type="numeric";
-		
+
 		var objMessages = getInstance( 'Messages' );
 		var objUsers    = getInstance( "Users" );
 
@@ -68,13 +68,19 @@ component{
 	{
 		if( rc.MessageID eq 0 )
 		{
-
+			getInstance( "Messages" ).create( rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
 		}
 		else if( rc.MessageID gt 0 )
 		{
-
+			getInstance( "Messages" ).update( rc.MessageID, rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
 		}
 
+		relocate( event="messages.list" );
+	}
+
+	function delete( event, rc, prc )
+	{
+		getInstance( "Messages" ).delete( rc.MessageID );
 		relocate( event="messages.list" );
 	}
 	

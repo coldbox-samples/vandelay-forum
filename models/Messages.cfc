@@ -28,7 +28,7 @@ component
                 UserID = { value=arguments.UserID, cfsqltype="cf_sql_int" },
                 MessageBody = { value=arguments.MessageBody, cfsqltype="cf_sql_varchar" },
                 Subject = { value=arguments.Subject, cfsqltype="cf_sql_varchar" },
-                dateTimeCreated = { value=arguments.dateTimeCreated, cfsqltype="cf_sql_datetime" },
+                dateTimeCreated = { value=arguments.dateTimeCreated, cfsqltype="cf_sql_timestamp" },
         };
 
         var rslt = queryExecute( sql, params, { datasource: dsn.name } );
@@ -75,7 +75,7 @@ component
                 UserID = { value=arguments.UserID, cfsqltype="cf_sql_int" },
                 MessageBody = { value=arguments.MessageBody, cfsqltype="cf_sql_varchar" },
                 Subject = { value=arguments.Subject, cfsqltype="cf_sql_varchar" },
-                dateTimeCreated = { value=arguments.dateTimeCreated, cfsqltype="cf_sql_datetime" },
+                dateTimeCreated = { value=arguments.dateTimeCreated, cfsqltype="cf_sql_timestamp" },
         };
 
         var rslt = queryExecute( sql, params, { datasource: dsn.name } );
