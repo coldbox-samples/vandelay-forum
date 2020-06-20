@@ -53,6 +53,8 @@ component{
 	*/
 	function detail( event, rc, prc )
 	{
+		param name="rc.MessageID" default="0" type="numeric";
+		
 		var objMessages = getInstance( 'Messages' );
 		var objUsers    = getInstance( "Users" );
 
@@ -62,6 +64,18 @@ component{
 		event.setView( "messages/detail" );
 	}
 
+	function save( event, rc, prc )
+	{
+		if( rc.MessageID eq 0 )
+		{
 
+		}
+		else if( rc.MessageID gt 0 )
+		{
+
+		}
+
+		relocate( event="messages.list" );
+	}
 	
 }
