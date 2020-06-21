@@ -14,6 +14,8 @@ component{
 	this.allowedMethods = {};
 	
 
+	property name="objUsers" inject="Users";
+
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
 	{
@@ -44,11 +46,15 @@ component{
 */
 	function list( event, rc, prc )
 	{
-		var qryUsers = getInstance( "Users" ).getUsers();
-		prc.qryUsers = qryUsers;
+		// var qryUsers = CreateObject( "component", "model.users" ).init().getUsers();
+		// var qryUsers = new model.users().getUsers();
+		// var qryUsers = getInstance( "Users" ).getUsers();
 
-		// event.setLayout( 'plain' );
-		// event.setView( 'users/tabular' );
+		writedump( objUsers );
+		abort;
+
+
+		prc.qryUsers = qryUsers;
 	}
 		
 	function details( event, rc, prc ) cache="true" cacheTimeout="30"

@@ -4,6 +4,7 @@
 component{
 	
 	property name="html" inject="HTMLHelper@coldbox";
+	property name="objMessages" inject="Messages";
 
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
@@ -40,7 +41,10 @@ component{
 	{
 		// var qMessages = createObject( 'component', 'models.Messages' );
 		// var qMessages = new models.Messages();
-		var objMessages = getInstance( 'Messages' );
+		// var objMessages = getInstance( 'Messages' );
+
+		writedump( objMessages );
+		abort;
 
 		//writedump( qMessages );
 
