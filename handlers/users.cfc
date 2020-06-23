@@ -50,9 +50,10 @@ component{
 		// var qryUsers = new model.users().getUsers();
 		// var qryUsers = getInstance( "Users" ).getUsers();
 
-		writedump( objUsers );
-		abort;
+		// writedump( objUsers );
+		// abort;
 
+		var qryUsers = objUsers.getUsers();
 
 		prc.qryUsers = qryUsers;
 	}

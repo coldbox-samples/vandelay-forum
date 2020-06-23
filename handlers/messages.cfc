@@ -5,6 +5,7 @@ component{
 	
 	property name="html" inject="HTMLHelper@coldbox";
 	property name="objMessages" inject="Messages";
+	property name="interceptorService" inject="coldbox:interceptorService";
 
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
@@ -39,20 +40,12 @@ component{
 	*/
 	function list( event, rc, prc )
 	{
-		// var qMessages = createObject( 'component', 'models.Messages' );
-		// var qMessages = new models.Messages();
-		// var objMessages = getInstance( 'Messages' );
+		// writedump( interceptorService );
+		// abort;
 
-		writedump( objMessages );
-		abort;
-
-		//writedump( qMessages );
+//		interceptorService.registerInterceptor( "interceptors.MyInterceptor" );
 
 		prc.qMessages = objMessages.read();
-
-		writeDump( getInstance( 'Messages' ) );
-		abort;
-
 		event.setView( "messages/list" );
 	}
 
