@@ -94,7 +94,7 @@ component{
 
 		//Interceptor Settings
 		interceptorSettings = {
-			customInterceptionPoints = ""
+			customInterceptionPoints = "uploadPhoto"
 		};
 
 		//Register interceptors as an array, we need order

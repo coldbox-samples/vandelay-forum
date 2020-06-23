@@ -58,7 +58,7 @@ component{
 		prc.qryUsers = qryUsers;
 	}
 		
-	function details( event, rc, prc ) cache="true" cacheTimeout="30"
+	function details( event, rc, prc )
 	{
 		var qryUserDetails = getInstance( "Users" ).getUserDetails( rc.userID );
 		rc.qryUserDetails = qryUserDetails;
@@ -66,6 +66,13 @@ component{
 	
 	function save( event, rc, prc )
 	{
+		// did we get a Headshot uploaded?
+		if( rc.headshot.len() gt 0 )
+		{
+			announceInterception( "uploadPhoto" );
+			abort;
+		}
+
 		var rslt = getInstance( "Users" ).saveUser( Val( rc.userID ), 
 													rc.firstName, 
 													rc.lastName, 
@@ -73,8 +80,5 @@ component{
 													rc.Password );
 
 		relocate( event="users.list" );
-		// relocate( event="users.list", querystring="saved=1" );
-		// relocate( url="https://ortussolutions.com" );
-		// relocate( uri="/users/list" );
 	}
 }

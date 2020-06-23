@@ -1,8 +1,6 @@
 <cfoutput>
     <h1>#getSetting( 'companyName' )# Users</h1>
 
-    <cfset sayHello() />
-
     <ul class="list-group">
         <cfloop query="prc.qryUsers">
             <li class="list-group-item">
@@ -28,8 +26,6 @@
         <cfdump var="#event.getCurrentRoutedURL()#" label="event.getCurrentRoutedURL()" />
         <cfdump var="#event.getCurrentRoutedNamespace()#" label="event.getCurrentRoutedNamespace()" />
     </cfif>
-
-    <cfset sayGoodBye() />
 
 </cfoutput>
 
