@@ -70,7 +70,7 @@ component{
 		if( rc.headshot.len() gt 0 )
 		{
 			announceInterception( "uploadPhoto" );
-			abort;
+//			abort;
 		}
 
 		var rslt = getInstance( "Users" ).saveUser( Val( rc.userID ), 
