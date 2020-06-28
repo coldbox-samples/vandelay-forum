@@ -8,6 +8,8 @@ component singleton
     property name="Subject";
     property name="dateTimeCreated";
 
+    property name="objUsers" inject="Users";
+
     public any function init()
     {
         return this;

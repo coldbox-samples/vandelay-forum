@@ -43,8 +43,9 @@ component{
 		// var qMessages = new models.Messages();
 		// var objMessages = getInstance( 'Messages' );
 
-		writedump( objMessages );
-		abort;
+		// writedump( objMessages );
+		// objMessages.read();
+		// abort;
 
 		//writedump( qMessages );
 
