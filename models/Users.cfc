@@ -1,4 +1,4 @@
-component
+component accessors='true'
 {
     property name="dsn" inject="coldbox:setting:vandelay_dsn";
 
@@ -27,9 +27,9 @@ component
         return rslt;
     }
 
-    public any function saveUser( userID, firstName, lastName, Email, Password )
+    public any function saveUser()
     {
-        if( IsNumeric( arguments.userID ) && arguments.userID > 0 )
+        if( IsNumeric( getuserID() ) && getuserID() > 0 )
         {
             var sql = "UPDATE tUser 
                           SET FirstName = :firstName, 
@@ -53,11 +53,11 @@ component
                                           )";
         }
 
-        var rslt = queryExecute( sql, { userID = arguments.userID,
-                                        firstName = arguments.firstName,
-                                        lastName = arguments.lastName,
-                                        email = arguments.email,
-                                        password = arguments.password
+        var rslt = queryExecute( sql, { userID = getuserID(),
+                                        firstName = getfirstName(),
+                                        lastName = getlastName(),
+                                        email = getemail(),
+                                        password = getpassword()
                                       }, 
                                       { datasource: dsn.name } );
 

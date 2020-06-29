@@ -1,4 +1,4 @@
-component singleton
+component singleton accessors='true'
 {
     property name="dsn" inject="coldbox:setting:vandelay_dsn";
 

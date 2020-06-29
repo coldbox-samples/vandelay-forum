@@ -13,8 +13,8 @@ component{
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
 	this.allowedMethods = {};
 	
-
 	property name="objUsers" inject="Users";
+	// property name="populator" inject="wirebox:populator";
 
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
@@ -48,16 +48,16 @@ component{
 	{
 		// var qryUsers = CreateObject( "component", "model.users" ).init().getUsers();
 		// var qryUsers = new model.users().getUsers();
-		// var qryUsers = getInstance( "Users" ).getUsers();
+		var qryUsers = getInstance( "Users" ).getUsers();
 
-		writedump( objUsers );
-		abort;
+		// writedump( objUsers );
+		// abort;
 
 
 		prc.qryUsers = qryUsers;
 	}
 		
-	function details( event, rc, prc ) cache="true" cacheTimeout="30"
+	function details( event, rc, prc )
 	{
 		var qryUserDetails = getInstance( "Users" ).getUserDetails( rc.userID );
 		rc.qryUserDetails = qryUserDetails;
@@ -65,15 +65,18 @@ component{
 	
 	function save( event, rc, prc )
 	{
-		var rslt = getInstance( "Users" ).saveUser( Val( rc.userID ), 
-													rc.firstName, 
-													rc.lastName, 
-													rc.Email, 
-													rc.Password );
+		// var rslt = getInstance( "Users" ).saveUser( Val( rc.userID ), 
+		// 											rc.firstName, 
+		// 											rc.lastName, 
+		// 											rc.Email, 
+		// 											rc.Password );
+
+		var objUser = populateModel( model=getInstance( 'users' ), memento=rc );
+		// var objUser = populateModel( model='users', memento=rc );
+		// var objUser = populateModel( model='users' );
+		
+		objUser.saveUser();
 
 		relocate( event="users.list" );
-		// relocate( event="users.list", querystring="saved=1" );
-		// relocate( url="https://ortussolutions.com" );
-		// relocate( uri="/users/list" );
 	}
 }
