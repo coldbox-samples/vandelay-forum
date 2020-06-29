@@ -43,17 +43,7 @@ component{
 		// var qMessages = new models.Messages();
 		// var objMessages = getInstance( 'Messages' );
 
-		// writedump( objMessages );
-		// objMessages.read();
-		// abort;
-
-		//writedump( qMessages );
-
 		prc.qMessages = objMessages.read();
-
-		writeDump( getInstance( 'Messages' ) );
-		abort;
-
 		event.setView( "messages/list" );
 	}
 
