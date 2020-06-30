@@ -38,16 +38,11 @@ component{
 	*/
 	function list( event, rc, prc )
 	{
-		// var qMessages = createObject( 'component', 'models.Messages' );
-		// var qMessages = new models.Messages();
+		// var objMessages = createObject( 'component', 'models.Messages' ).init();
+		// var objMessages = new models.Messages();
 		var objMessages = getInstance( 'Messages' );
 
-		//writedump( qMessages );
-
 		prc.qMessages = objMessages.read();
-
-		writeDump( getInstance( 'Messages' ) );
-		abort;
 
 		event.setView( "messages/list" );
 	}

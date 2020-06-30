@@ -10,6 +10,11 @@ component singleton
 
     public any function init()
     {
+        // // hard-coding the DSN here because we flip between "createObject"
+        // // and getInstance() in this demo. createObject() won't execute
+        // // the injected properties for us.
+
+        // dsn.name = "vandelay_dsn";
         return this;
     }
 
