@@ -46,14 +46,9 @@ component{
 */
 	function list( event, rc, prc )
 	{
-		// var qryUsers = CreateObject( "component", "model.users" ).init().getUsers();
-		// var qryUsers = new model.users().getUsers();
-		var qryUsers = getInstance( "Users" ).getUsers();
+		var objUsers = getInstance( "Users" );
 
-		// writedump( objUsers );
-		// abort;
-
-
+		var qryUsers = objUsers.getUsers();
 		prc.qryUsers = qryUsers;
 	}
 		
@@ -71,9 +66,9 @@ component{
 		// 											rc.Email, 
 		// 											rc.Password );
 
-		var objUser = populateModel( model=getInstance( 'users' ), memento=rc );
+		// var objUser = populateModel( model=getInstance( 'users' ), memento=rc );
 		// var objUser = populateModel( model='users', memento=rc );
-		// var objUser = populateModel( model='users' );
+		var objUser = populateModel( model='users' );
 		
 		objUser.saveUser();
 

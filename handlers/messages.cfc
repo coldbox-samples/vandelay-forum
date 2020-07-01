@@ -39,20 +39,7 @@ component{
 	*/
 	function list( event, rc, prc )
 	{
-		// var qMessages = createObject( 'component', 'models.Messages' );
-		// var qMessages = new models.Messages();
-		// var objMessages = getInstance( 'Messages' );
-
-		// writedump( objMessages );
-		// objMessages.read();
-		// abort;
-
-		//writedump( qMessages );
-
 		prc.qMessages = objMessages.read();
-
-		writeDump( getInstance( 'Messages' ) );
-		abort;
 
 		event.setView( "messages/list" );
 	}
@@ -64,7 +51,7 @@ component{
 	{
 		param name="rc.MessageID" default="0" type="numeric";
 
-		var objMessages = getInstance( 'Messages' );
+		//var objMessages = getInstance( 'Messages' );
 		var objUsers    = getInstance( "Users" );
 
 		prc.qUsers = objUsers.getUsers();
