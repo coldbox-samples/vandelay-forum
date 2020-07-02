@@ -43,7 +43,7 @@ component{
 		// writedump( interceptorService );
 		// abort;
 
-//		interceptorService.registerInterceptor( "interceptors.MyInterceptor" );
+		interceptorService.registerInterceptor( "interceptors.MyInterceptor" );
 
 		prc.qMessages = objMessages.read();
 		event.setView( "messages/list" );

@@ -98,16 +98,16 @@ component{
 		};
 
 		//Register interceptors as an array, we need order
-		interceptors = [
-			{
-				class="interceptors.MyInterceptor",
-				name="MyPreRenderInterceptor",
-				properties = {
-					foo: "bar",
-					stuff: "hello"
-				}
-			}
-		];
+		// interceptors = [
+		// 	{
+		// 		class="interceptors.MyInterceptor",
+		// 		name="MyPreRenderInterceptor",
+		// 		properties = {
+		// 			foo: "bar",
+		// 			stuff: "hello"
+		// 		}
+		// 	}
+		// ];
 
 		/*
 		// module setting overrides
