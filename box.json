@@ -30,5 +30,8 @@
     "dependencies":{
         "coldbox":"^5.0.0"
     },
-    "scripts":{}
+    "scripts":{},
+    "testbox":{
+        "runner":"http://127.0.0.1:53400/tests/runner.cfm"
+    }
 }
