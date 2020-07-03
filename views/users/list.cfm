@@ -4,15 +4,14 @@
     <ul class="list-group">
         <cfloop query="prc.qryUsers">
             <li class="list-group-item">
-            <!--- <a href="index.cfm?event=users.details&userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
-
-            <!--- <a href="/users/details/userID/#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
-
-            <!--- <a href="#event.buildLink( to='users.details' )#?userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
-
                 <a href="#event.buildLink( to='users.details', 
                                            queryString='userID=#prc.qryUsers.userID#' )#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a>
             </li>
+        </cfloop>
+
+        <!--- Now loop over the Admin users and draw them a well. --->
+        <cfloop array="#prc.aryAdmins#" index="curPerson">
+            <li class="list-group-item">#curPerson#</li>
         </cfloop>
     </ul>
 

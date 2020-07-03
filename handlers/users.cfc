@@ -15,6 +15,7 @@ component{
 	
 
 	property name="objUsers" inject="Users";
+	property name="objAdmins" inject="Administrators@MyAdminTools";
 
 	// IMPLICIT FUNCTIONS: Uncomment to use
 	function preHandler( event, rc, prc, action, eventArguments )
@@ -46,16 +47,10 @@ component{
 */
 	function list( event, rc, prc )
 	{
-		// var qryUsers = CreateObject( "component", "model.users" ).init().getUsers();
-		// var qryUsers = new model.users().getUsers();
-		// var qryUsers = getInstance( "Users" ).getUsers();
-
-		// writedump( objUsers );
-		// abort;
-
 		var qryUsers = objUsers.getUsers();
 
 		prc.qryUsers = qryUsers;
+		prc.aryAdmins = objAdmins.getAdminUsers();
 	}
 		
 	function details( event, rc, prc )
