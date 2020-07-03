@@ -2,6 +2,7 @@
     <h1>Messages</h1>
 
     <a href="#event.buildLink( 'messages.detail' )#">Add New Message</a>
+    <a href="#event.buildLink( 'MyAdminTools:home.index' )#">Go To Admin Tools</a>
 
     <table class="table">
         <thead>
