@@ -9,6 +9,9 @@ component accessors='true'
     this.constraints = {
         firstName = {
             required: true
+        },
+        lastName = {
+            required: true
         }
     };
 
