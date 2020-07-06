@@ -13,54 +13,17 @@ component{
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
 	this.allowedMethods = {};
 	
-	property name="objUsers" inject="Users";
-	// property name="populator" inject="wirebox:populator";
-
-	// IMPLICIT FUNCTIONS: Uncomment to use
-	function preHandler( event, rc, prc, action, eventArguments )
-	{
-		// event.setLayout( 'plain' );
-	}
-/*
-	function postHandler( event, rc, prc, action, eventArguments )
-	{
-	}
-
-	function aroundHandler( event, rc, prc, targetAction, eventArguments ){
-		// executed targeted action
-		arguments.targetAction( event );
-	}
-
-	function onMissingAction( event, rc, prc, missingAction, eventArguments )
-	{
-		log.error( "Missing Action! Somebody requested #arguments.missingAction#." );
-		// abort;
-		relocate( 'users.list' );
-	}
-
-	function onError( event, rc, prc, faultAction, exception, eventArguments ){
-	}
-
-	function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
-	}
-*/
 	function list( event, rc, prc )
 	{
-		// var qryUsers = CreateObject( "component", "model.users" ).init().getUsers();
-		// var qryUsers = new model.users().getUsers();
-		var qryUsers = getInstance( "Users" ).getUsers();
-
-		// writedump( objUsers );
-		// abort;
-
+		var qryUsers = getInstance( "UserService" ).getUsers();
 
 		prc.qryUsers = qryUsers;
 	}
 		
 	function details( event, rc, prc )
 	{
-		var qryUserDetails = getInstance( "Users" ).getUserDetails( rc.userID );
-		rc.qryUserDetails = qryUserDetails;
+		var objUser = getInstance( "UserService" ).getUserDetails( rc.userID );
+		prc.objUser = objUser;
 	}
 	
 	function save( event, rc, prc )
@@ -71,12 +34,20 @@ component{
 		// 											rc.Email, 
 		// 											rc.Password );
 
-		var objUser = populateModel( model=getInstance( 'users' ), memento=rc );
-		// var objUser = populateModel( model='users', memento=rc );
-		// var objUser = populateModel( model='users' );
-		
-		objUser.saveUser();
+		var objUser = populateModel( model='users' );
 
-		relocate( event="users.list" );
+		var validationResults = validateModel( objUser );
+
+		if( validationResults.hasErrors() )
+		{
+			var errors = validationResults.getAllErrors();
+			relocate( event="users.details", queryString="userID=#rc.userID#", persistStruct={ userID: rc.userID, errors: errors } );
+		}
+		else 
+		{
+			getInstance( "UserService" ).saveUser( objUser );
+			relocate( event="users.list" );			
+		}
+
 	}
 }

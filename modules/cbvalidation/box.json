@@ -1,0 +1,42 @@
+{
+    "name":"ColdBox Validation",
+    "author":"Ortus Solutions <info@ortussolutions.com>",
+    "version":"2.2.0+132",
+    "location":"https://downloads.ortussolutions.com/ortussolutions/coldbox-modules/cbvalidation/2.2.0/cbvalidation-2.2.0.zip",
+    "slug":"cbvalidation",
+    "type":"modules",
+    "homepage":"https://github.com/coldbox-modules/cbvalidation",
+    "documentation":"https://coldbox-validation.ortusbooks.com/",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/coldbox-modules/cbvalidation"
+    },
+    "shortDescription":"This module provides server side validation to ColdBox applications",
+    "license":[
+        {
+            "type":"Apache2",
+            "url":"http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    ],
+    "contributors":[
+        "Brad Wood <bdw429s@gmail.com>",
+        "Curt Gratz <gratz@computerknowhow.com>"
+    ],
+    "dependencies":{
+        "cbi18n":"^1.4.0"
+    },
+    "ignore":[
+        "**/.*",
+        "tests/*",
+        ".git*"
+    ],
+    "scripts":{
+        "release":"recipe build/release.boxr",
+        "format":"cfformat run models/,test-harness/tests/,*.cfc --overwrite",
+        "format:watch":"cfformat watch models/,test-harness/tests/,*.cfc ./.cfformat.json",
+        "format:check":"cfformat check models/,test-harness/tests/,*.cfc"
+    },
+    "installPaths":{
+        "cbi18n":"modules/cbi18n/"
+    }
+}

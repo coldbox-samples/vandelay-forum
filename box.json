@@ -25,10 +25,12 @@
     },
     "installPaths":{
         "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "cbvalidation":"modules/cbvalidation/"
     },
     "dependencies":{
-        "coldbox":"^5.0.0"
+        "coldbox":"^5.0.0",
+        "cbvalidation":"^2.2.0+132"
     },
     "scripts":{}
 }

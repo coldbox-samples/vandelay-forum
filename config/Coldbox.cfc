@@ -24,8 +24,8 @@ component{
 			missingTemplateHandler	= "",
 
 			//Extension Points
-			applicationHelper 			= "includes/helpers/ApplicationHelper.cfm",
-			viewsHelper					= "includes/helpers/ViewsHelper.cfm",
+			//applicationHelper 			= "includes/helpers/ApplicationHelper.cfm",
+			//viewsHelper					= "includes/helpers/ViewsHelper.cfm",
 			modulesExternalLocation		= [],
 			viewsExternalLocation		= "",
 			layoutsExternalLocation 	= "",

@@ -1,17 +1,13 @@
 <cfoutput>
     <h1>#getSetting( 'companyName' )# Users</h1>
 
-    <cfset sayHello() />
+    <div>
+        <a href="#event.buildLink( to='users.details', queryString="userID=0" )#">Add New User</a>
+    </div>
 
     <ul class="list-group">
         <cfloop query="prc.qryUsers">
             <li class="list-group-item">
-            <!--- <a href="index.cfm?event=users.details&userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
-
-            <!--- <a href="/users/details/userID/#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
-
-            <!--- <a href="#event.buildLink( to='users.details' )#?userID=#prc.qryUsers.userID#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a> --->
-
                 <a href="#event.buildLink( to='users.details', 
                                            queryString='userID=#prc.qryUsers.userID#' )#">#prc.qryUsers.firstName# #prc.qryUsers.lastName#</a>
             </li>
@@ -28,8 +24,6 @@
         <cfdump var="#event.getCurrentRoutedURL()#" label="event.getCurrentRoutedURL()" />
         <cfdump var="#event.getCurrentRoutedNamespace()#" label="event.getCurrentRoutedNamespace()" />
     </cfif>
-
-    <cfset sayGoodBye() />
 
 </cfoutput>
 
