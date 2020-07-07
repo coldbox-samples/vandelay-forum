@@ -3,9 +3,6 @@
 */
 component{
 	
-	property name="html" inject="HTMLHelper@coldbox";
-	property name="objMessages" inject="Messages";
-
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -15,7 +12,9 @@ component{
 	this.aroundHandler_except = "";
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
 	this.allowedMethods = {};
-			
+	
+	property name="html" inject="HTMLHelper@coldbox";
+	property name="objMessages" inject="Messages";
 	property name="objMessageService" inject="MessageService";
 	property name="objUserService" inject="UserService";
 
