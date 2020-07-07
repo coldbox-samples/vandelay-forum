@@ -17,6 +17,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
 		<!---Brand --->
 		<a class="navbar-brand mb-0" href="#event.buildLink('')#"><strong>Home</strong></a>
+
+		<a href="#event.buildLink( 'users.list' )#">Users</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#event.buildLink( 'messages.list' )#">Messages</a>
+
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="##navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

@@ -1,10 +1,17 @@
 <cfoutput>
     <h1>Message Details</h1>
-
     <a href="#event.buildLink( 'messages.list' )#">Back to Messages</a>
 
+    <cfif IsDefined( "rc.errors" )>
+        <div class="alert alert-danger" role="alert">
+            <cfloop array="#rc.errors#" index="curError">
+                <p>#curError#</p>
+            </cfloop>
+        </div>
+    </cfif>
+
     <form name="frmDetails" id="frmDetails" method="post" action="#event.buildLink( 'messages.save' )#">
-        #html.inputField( type='hidden', name='MessageID', value=Val( prc.qMessage.MessageID ) )#
+        #html.inputField( type='hidden', name='MessageID', value=Val( prc.objMessage.getMessageID() ) )#
 
         <div class="form-group">
             #html.label( field="subject", content="Subject" )#
@@ -12,7 +19,7 @@
             #html.inputField( type='text', 
                               name='subject', 
                               class='form-control',
-                              value=prc.qMessage.Subject )#
+                              value=prc.objMessage.getSubject() )#
         </div>
 
         <div class="form-group">
@@ -21,13 +28,13 @@
             #html.inputField( type='text', 
                               name='dateTimeCreated', 
                               class='form-control',
-                              value=DateFormat( prc.qMessage.dateTimeCreated, 'mm/dd/yyyy' ) )#
+                              value=DateFormat( prc.objMessage.getdateTimeCreated(), 'mm/dd/yyyy' ) )#
         </div>
         
         <div class="form-group">
             #html.label( field="MessageBody", content="Message" )#
 
-            #html.textArea( name="MessageBody", class='form-control', value=prc.qMessage.MessageBody, rows=7, cols=40 )#
+            #html.textArea( name="MessageBody", class='form-control', value=prc.objMessage.getMessageBody(), rows=7, cols=40 )#
         </div>
 
         <div class="form-group">
@@ -37,7 +44,7 @@
                 <option value="">No Author Found</option>
                 <cfloop query="prc.qUsers">
                     <option value="#prc.qUsers.UserID#"
-                        #prc.qUsers.UserID eq prc.qMessage.UserID ? 'selected' : ''#>
+                        #prc.qUsers.UserID eq prc.objMessage.getUserID() ? 'selected' : ''#>
                         #prc.qUsers.firstName# #prc.qUsers.lastName#
                     </option>
                 </cfloop>

@@ -12,28 +12,24 @@ component{
 	this.aroundHandler_except = "";
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
 	this.allowedMethods = {};
+
+	property name="objUserService" inject="userService";
 	
 	function list( event, rc, prc )
 	{
-		var qryUsers = getInstance( "UserService" ).getUsers();
+		var qryUsers = objUserService.getUsers();
 
 		prc.qryUsers = qryUsers;
 	}
 		
 	function details( event, rc, prc )
 	{
-		var objUser = getInstance( "UserService" ).getUserDetails( rc.userID );
+		var objUser = objUserService.getUserDetails( rc.userID );
 		prc.objUser = objUser;
 	}
 	
 	function save( event, rc, prc )
 	{
-		// var rslt = getInstance( "Users" ).saveUser( Val( rc.userID ), 
-		// 											rc.firstName, 
-		// 											rc.lastName, 
-		// 											rc.Email, 
-		// 											rc.Password );
-
 		var objUser = populateModel( model='users' );
 
 		var validationResults = validateModel( objUser );
@@ -47,7 +43,7 @@ component{
 		}
 		else 
 		{
-			getInstance( "UserService" ).saveUser( objUser );
+			objUserService.saveUser( objUser );
 			relocate( event="users.list" );			
 		}
 

@@ -15,35 +15,16 @@ component{
 	this.aroundHandler_except = "";
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
 	this.allowedMethods = {};
-	
-	/**
-	IMPLICIT FUNCTIONS: Uncomment to use
-	function preHandler( event, rc, prc, action, eventArguments ){
-	}
-	function postHandler( event, rc, prc, action, eventArguments ){
-	}
-	function aroundHandler( event, rc, prc, targetAction, eventArguments ){
-		// executed targeted action
-		arguments.targetAction( event );
-	}
-	function onMissingAction( event, rc, prc, missingAction, eventArguments ){
-	}
-	function onError( event, rc, prc, faultAction, exception, eventArguments ){
-	}
-	function onInvalidHTTPMethod( event, rc, prc, faultAction, eventArguments ){
-	}
-	*/
-		
+			
+	property name="objMessageService" inject="MessageService";
+	property name="objUserService" inject="UserService";
+
 	/**
 	* list
 	*/
 	function list( event, rc, prc )
 	{
-		// var qMessages = createObject( 'component', 'models.Messages' );
-		// var qMessages = new models.Messages();
-		// var objMessages = getInstance( 'Messages' );
-
-		prc.qMessages = objMessages.read();
+		prc.qMessages = objMessageService.read();
 		event.setView( "messages/list" );
 	}
 
@@ -54,11 +35,8 @@ component{
 	{
 		param name="rc.MessageID" default="0" type="numeric";
 
-		var objMessages = getInstance( 'Messages' );
-		var objUsers    = getInstance( "Users" );
-
-		prc.qUsers = objUsers.getUsers();
-		prc.qMessage = objMessages.read( rc.MessageID ?: 0 );
+		prc.qUsers = objUserService.getUsers();
+		prc.objMessage = objMessageService.read( rc.MessageID ?: 0 );
 
 		event.setView( "messages/detail" );
 	}
@@ -67,11 +45,11 @@ component{
 	{
 		if( rc.MessageID eq 0 )
 		{
-			getInstance( "Messages" ).create( rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
+			objMessageService.create( rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
 		}
 		else if( rc.MessageID gt 0 )
 		{
-			getInstance( "Messages" ).update( rc.MessageID, rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
+			objMessageService.update( rc.MessageID, rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
 		}
 
 		relocate( event="messages.list" );
@@ -79,7 +57,7 @@ component{
 
 	function delete( event, rc, prc )
 	{
-		getInstance( "Messages" ).delete( rc.MessageID );
+		objMessageService.delete( rc.MessageID );
 		relocate( event="messages.list" );
 	}
 	

@@ -1,6 +1,7 @@
 component 
 {
     property name="dsn" inject="coldbox:setting:vandelay_dsn";
+    property name="populator" inject="wirebox:populator";
 
     public UserService function init()
     {
@@ -20,12 +21,14 @@ component
         var rslt = queryExecute( sql, { userID = arguments.userID }, { datasource: dsn.name } );
         
         var objUser = new Users();
-        objUser.setUserID( rslt.userID );
-        objUser.setFirstName( rslt.firstName );
-        objUser.setLastName( rslt.lastName );
-        objUser.setEmail( rslt.email );
-        objUser.setPassword( rslt.password );
 
+        // objUser.setUserID( rslt.userID );
+        // objUser.setFirstName( rslt.firstName );
+        // objUser.setLastName( rslt.lastName );
+        // objUser.setEmail( rslt.email );
+        // objUser.setPassword( rslt.password );        
+
+        objUser = populator.populateFromQuery( target=objUser, qry=rslt );
         return objUser;
     }
 
