@@ -41,7 +41,9 @@ component{
 		if( validationResults.hasErrors() )
 		{
 			var errors = validationResults.getAllErrors();
-			relocate( event="users.details", queryString="userID=#rc.userID#", persistStruct={ userID: rc.userID, errors: errors } );
+			relocate( event="users.details", 
+					  queryString="userID=#rc.userID#", 
+					  persistStruct={ userID: rc.userID, errors: errors } );
 		}
 		else 
 		{
