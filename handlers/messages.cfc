@@ -43,16 +43,32 @@ component{
 
 	function save( event, rc, prc )
 	{
-		if( rc.MessageID eq 0 )
-		{
-			objMessageService.create( rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
-		}
-		else if( rc.MessageID gt 0 )
-		{
-			objMessageService.update( rc.MessageID, rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
-		}
+		var objMessage = populateModel( model='messages' );
+		var validationResults = validateModel( objMessage );
 
-		relocate( event="messages.list" );
+		if( validationResults.hasErrors() )
+		{
+			var errors = validationResults.getAllErrors();
+			relocate( event="messages.detail", 
+					  queryString="messageID=#rc.messageID#", 
+					  persistStruct={ messageID: rc.messageID, errors: errors } );
+
+			if( rc.MessageID eq 0 )
+			{
+				objMessageService.create( rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
+			}
+			else if( rc.MessageID gt 0 )
+			{
+				objMessageService.update( rc.MessageID, rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
+			}
+	
+			relocate( event="messages.list" );
+		}
+		else 
+		{
+			objUserService.saveUser( objUser );
+			relocate( event="users.list" );			
+		}
 	}
 
 	function delete( event, rc, prc )

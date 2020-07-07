@@ -12,6 +12,10 @@ component singleton accessors='true'
         },
         Subject = {
             required: true
+        },
+        UserID = {
+            required: true,
+            type: "numeric"
         }
     };
 
