@@ -91,11 +91,11 @@ component singleton accessors='true'
         return objMessage;
     }
 
-    public void function delete( objMessage )
+    public void function delete( MessageID )
     {
         var sql = "DELETE FROM tMessages WHERE MessageID = :MessageID";
         var params = {
-            MessageID = { value=arguments.objMessage.getMessageID(), cfsqltype="cf_sql_int" }
+            MessageID = { value=arguments.MessageID, cfsqltype="cf_sql_int" }
         };
     }
 

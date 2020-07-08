@@ -52,21 +52,19 @@ component{
 					  queryString="messageID=#rc.messageID#", 
 					  persistStruct={ messageID: rc.messageID, errors: errors } );
 
-			if( rc.MessageID eq 0 )
-			{
-				objMessageService.create( rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
-			}
-			else if( rc.MessageID gt 0 )
-			{
-				objMessageService.update( rc.MessageID, rc.UserID, rc.MessageBody, rc.Subject, rc.dateTimeCreated )
-			}
-	
-			relocate( event="messages.list" );
 		}
 		else 
 		{
-			objUserService.saveUser( objUser );
-			relocate( event="users.list" );			
+			if( rc.MessageID eq 0 )
+			{
+				objMessageService.create( objMessage )
+			}
+			else if( rc.MessageID gt 0 )
+			{
+				objMessageService.update( objMessage )
+			}
+	
+			relocate( event="messages.list" );
 		}
 	}
 
