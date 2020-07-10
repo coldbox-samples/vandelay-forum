@@ -33,6 +33,10 @@ component{
 
 	function list( event, rc, prc )
 	{
+		param name="rc.userType" default="";
+
+		param name="rc.searchingfor" default="";
+
 		rc.aryUsers = new models.Users().getUsers();
 
 		if( IsDefined( "rc.addMe" ) )

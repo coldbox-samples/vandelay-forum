@@ -35,10 +35,12 @@ component{
 	* list
 	*/
 	function list( event, rc, prc ){
+		param name="rc.year" default="2020";
+		param name="rc.month" default="1";
+		param name="rc.day" default="1";
+		
 
-		cfparam( name="rc.day", default="1" );
-		cfparam( name="rc.month", default="7" );
-
+		event.setView( "messages/list" );
 	}
 
 	/**

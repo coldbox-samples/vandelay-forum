@@ -31,7 +31,16 @@ component{
 		// route( "/msgs/:year/:month", "messages.list" );
 		// route( "/msgs/:year", "messages.list" );
 
-		route( "/msgs/:year/:month?/:day?", "messages.list" );
+		// numeric placeholders
+		route( "/msgs/:year-numeric/:month-numeric?/:day-numeric?", "messages.list" );
+		route( "/msgs/:year/:month?/:day?", "main.index" );
+
+		// alpha placeholders
+		route( "/u/:usertype-alpha", "users.list" );
+		route( "/u", "main.index" );
+
+		// regex placeholders
+		route( "/usersearch/:searchingfor-regex:(admin|sales|marketing)", "users.list" )
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();
