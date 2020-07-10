@@ -27,7 +27,7 @@ component{
 			};
 		} );
 
-		resources( "users" );
+		resources( "photos" );
 
 
 		// Conventions based routing
