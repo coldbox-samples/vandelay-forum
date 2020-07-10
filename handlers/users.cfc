@@ -35,9 +35,9 @@ component{
 	{
 		rc.aryUsers = new models.Users().getUsers();
 
-		if( IsDefined( "rc.addMe" ) )
+		if( IsDefined( "rc.format" ) )
 		{
-			rc.aryUsers.append( rc.addMe );
+			event.renderData( type=rc.format, data=rc.aryUsers );
 		}
 	}
 		

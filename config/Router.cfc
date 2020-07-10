@@ -33,6 +33,8 @@ component{
 
 		route( "/msgs/:year/:month?/:day?", "messages.list" );
 
+		route( "/u", "users.list" );
+
 		// Conventions based routing
 		route( ":handler/:action?" ).end();
 	}
